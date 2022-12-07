@@ -1,0 +1,209 @@
+/*This is to create the table  delete this before excuting the sql code
+delete from careerportal.jobs; 
+delete from careerportal."location"; 
+delete from careerportal."user"; 
+delete from careerportal.department;
+
+
+
+	
+
+insert into careerportal.department (
+	departmentId ,
+	departmentName ,
+	departmentDesc )
+values	
+	(1, 'IST Securities', 'Deals with the company stuff'), 
+	(2, 'Research and Development', 'Deals with innotive company stuff'),
+	(3, 'Cyber Security', 'Deals with security company stuff');
+
+
+
+insert into careerportal."location" (
+	locationId ,
+	streetAddress,
+	city ,
+	state ,
+	zipcode)
+values
+	(1,'123 fake drive', 'Brooklyn', 'New York', '1113333'),
+	(2,'456 NotReal BLVD', 'Manhatten', 'New York', '2224444'),
+	(3,'789 Bogus Ave', 'Los Angeles', 'California', '3335555');
+
+
+
+insert into careerportal."user" (
+	userId ,
+	email ,
+	password ,
+	hiringManager ,
+	firstName ,
+	lastName )
+values
+	(1,'fakeemail@gmail.com', '12345',true, 'Jason','Mui'),
+	(2,'NotReal@gmail.com', '12345',true, 'Patrick','Faeber'),
+	(3,'JSmith@gmail.com', '12345',false, 'John','smith'),
+	(4,'CAnne@gmail.com', '12345',false, 'Charlie','Anne'),
+	(5,'DGeorge@gmail.com', '12345',false, 'Debra','George'),
+	(6,'DMartinez@gmail.com', '12345',false, 'Denise','Martinez'),
+	(7,'CSmallville@gmail.com', '12345',false, 'Chloe','Smallville'),
+	(8,'CJudge@gmail.com', '12345',false, 'Chris','Judge'),
+	(9,'ADOrta@gmail.com', '12345',false, 'Alvin','Dorta'),
+	(10,'JGonzales@gmail.com', '12345',false, 'James','Gonzales'),
+	(11,'BWillis@gmail.com', '12345',false, 'Bruce','Willis'),
+	(12,'WYork@gmail.com', '12345',false, 'William','York'),
+	(13,'SWinchester@gmail.com', '12345',false, 'Sam','Winchester'),
+	(14,'DWinchester@gmail.com', '12345',false, 'Dean','Winchester'),
+	(15,'YLassandra@gmail.com', '12345',false, 'Yvette','Lassandra'),
+	(16,'MLuis@gmail.com', '12345',false, 'Manny','Luis'),
+	(17,'DMaze@gmail.com', '12345',false, 'Derek','Maze'),
+	(18,'MNunez@gmail.com', '12345',false, 'Mike','Nunez'),
+	(19,'GLopez@gmail.com', '12345',false, 'George','Lopez'),
+	(20,'KCrane@gmail.com', '12345',false, 'Karen','Crane');
+
+
+insert into careerportal.jobs (
+	jobId,
+	jobTitle ,
+	jobDescription,
+	minSal ,
+	maxSal, 	
+	postDate,
+	postingEndDate,
+	archiveDate,
+	isActive,
+	departmentId,
+	locationId ,
+	userId)
+values
+	(1, 'Software engineer','Write code, solve problems , profit', 120000,180000, null, null,null, true, 1,3,2 ), 
+	(2, 'junior Software engineer','Write code, solve problems , profit', 80000,120000, null, null,null, true, 1,3,2 ),
+	(3, 'Lead Software engineer','Write code, lead team, solve problems , profit', 240000,280000, null, null,null, true, 1,3,2 ),
+	(4, 'Senior Software engineer','Write code, solve problems , profit', 180000,240000, null, null,null, true, 2,1,1 ),
+	(5, 'intern Software engineer','Write code, learn , solve problems , profit', 60000,80000, null, null,null, true, 2,1,1 ),
+	(6, 'Software engineer','Write code, solve problems , profit', 120000,180000, null, null,null, true, 2,1,1 ),
+	(7, 'Software engineer','Write code, solve problems , profit', 120000,180000, null, null,null, true, 3,2,1 ),
+	(8, 'Software engineer','Write code, solve problems , profit', 120000,180000, null, null,null, false, 3,2,1 ),
+	(9, 'intern Software engineer','Write code, learn , solve problems , profit', 60000,80000, null, null,null, true, 3,2,1 ),
+	(10, 'intern Software engineer','Write code, learn , solve problems , profit', 60000,80000, null, null,null, false, 1,1,1 );
+
+
+
+insert into careerportal.user_job_relationship (
+	id ,
+	userId ,
+	jobId)
+values
+	(1,3,1),
+	(2,4,2),
+	(3,5,3),
+	(4,6,4),
+	(5,7,5),
+	(6,8,6),
+	(7,9,7),
+	(8,10,1),
+	(9,11,9),
+	(10,12,3),
+	(11,13,1),
+	(12,14,2),
+	(13,15,3),
+	(14,16,4),
+	(15,17,5),
+	(16,18,6),
+	(17,19,7),
+	(18,20,2);
+
+
+
+
+insert into careerportal.resume  (
+	userId ,
+	resumeAbstract ,
+	resume)
+values
+	(2,'blah blah 2',null),
+	(3,'blah blah 3',null),
+	(4,'blah blah 4',null),
+	(5,'blah blah 5',null),
+	(6,'blah blah 6',null),
+	(7,'blah blah 7',null),
+	(8,'blah blah 8',null),
+	(9,'blah blah 9',null),
+	(10,'blah blah 10',null),
+	(11,'blah blah 11',null),
+	(12,'blah blah 12',null),
+	(13,'blah blah 13',null),
+	(14,'blah blah 14',null),
+	(15,'blah blah 15',null),
+	(16,'blah blah 16',null),
+	(17,'blah blah 17',null),
+	(18,'blah blah 18',null),
+	(19,'blah blah 19',null),
+	(20,'blah blah 20',null);
+
+
+
+select * from careerportal."location" l ;
+select * from careerportal."user" u ;
+select * from careerportal.department d ;
+select * from careerportal.jobs j ;
+select * from careerportal.user_job_relationship ujr ;
+select * from careerportal.resume r ;
+
+/* This portion is to populate the tables 
+
+
+drop table careerportal.jobs;
+drop table careerportal.employee;
+drop table careerportal.department;
+drop table careerportal.location;
+drop table careerportal.resume;
+drop table careerportal.user;
+drop schema careerportal cascade;
+CREATE SCHEMA careerportal;
+create table careerportal.location(
+	locationId serial primary key,
+	streetAddress varchar(100),
+	city varchar(100),
+	state varchar(100),
+	zipcode varchar(100)
+	);
+create table careerportal.department(
+departmentId serial primary key,
+departmentName varchar (100),
+departmentDesc varchar (100)
+);
+CREATE TABLE careerportal.user(
+userId serial PRIMARY KEY,
+email text not null unique,
+password text not null,
+--currentEmployee boolean,
+hiringManager boolean,
+firstName varchar(100),
+lastName varchar(100)
+--departmentId int references careerportal.department(departmentId)
+);
+CREATE TABLE careerportal.jobs(
+	jobId serial primary key,
+	jobTitle varchar(100),
+	jobDescription varchar(100),
+	minSal int,
+	maxSal int, 	
+	postDate timestamp,
+	postingEndDate timestamp,
+	archiveDate timestamp,
+	isActive boolean,
+	departmentId int references careerportal.department(departmentId),
+	locationId int references careerportal.location(locationId),
+	userId int references careerportal.user(userId)
+);
+create table careerportal.user_job_relationship(
+id serial primary key,
+userId int references careerportal.user(userId),
+jobId int references careerportal.jobs(jobId)
+);
+create table careerportal.resume(
+userId int references careerportal.user(userId),
+resumeAbstract varchar(200),
+resume text
+);
