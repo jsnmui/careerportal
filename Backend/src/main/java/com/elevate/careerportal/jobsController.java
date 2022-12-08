@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
-@CrossOrigin (origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
+//@CrossOrigin (origins = "http://localhost:3000")
 @RestController
+@RequestMapping
 public class jobsController {
     @Autowired
     private jobsDAO jobs;
