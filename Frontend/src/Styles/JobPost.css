@@ -1,3 +1,4 @@
+
   .job-container
   {
     /* height: 8em;
@@ -6,7 +7,6 @@
      height: 78vh;
      justify-content: center;
      align-items: center;
-  
   }
   
   .job-form
@@ -25,12 +25,12 @@
   }
   
   input {
-  
       padding-top: 0.9rem;
       padding-bottom: 0.9rem;
       padding-right: 0.9rem;
       margin: 0.5rem;
   }
+
   
   button
   {
@@ -58,4 +58,8 @@
   
   .salary{
     text-transform: capitalize;
+}
+
+.datePicker{
+  width: 30em;
 }

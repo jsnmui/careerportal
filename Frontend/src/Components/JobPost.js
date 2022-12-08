@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import '../Styles/JobPost.css'
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 
 
 function JobPost() {
@@ -42,6 +44,10 @@ function JobPost() {
       alert("Post creation failed");
     }
   }
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <div className="job-container">
       <form className="job-form" onSubmit={handleSubmit}>
@@ -84,11 +90,8 @@ function JobPost() {
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
-  
           />
          
-    
-
         <h2 className="salary"> Salary range </h2>
 
         <input
@@ -108,6 +111,24 @@ function JobPost() {
             setMaxSal(event.target.value);
           }}
         />
+  
+        <DatePicker
+        className="datePicker"
+        selected={startDate}
+        name="startDate"
+        onChange={date => setStartDate(date)}
+        isClearable
+        placeholderText="Start date"
+        />
+
+        <DatePicker
+        className="datePicker"
+        selected={endDate}
+        name="endDate"
+        onChange={(date) => setEndDate(date)}
+        isClearable
+        placeholderText="End date"
+        />
 
         <button type="submit">Submit Job</button>
         <button type="submit">Save draft</button>
@@ -118,3 +139,23 @@ function JobPost() {
 }
 
 export default JobPost;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
