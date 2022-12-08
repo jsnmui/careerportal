@@ -1,13 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import '../Styles/JobPost.css'
-import DatePicker from "react-datepicker"
+import "../Styles/JobPost.css";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 function JobPost() {
-
   const [jobId, setJobId] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
@@ -21,6 +19,7 @@ function JobPost() {
     event.preventDefault();
     try {
       await axios.post("http://localhost:8080/jobs", {
+        userId: userId,
         jobId: jobId,
         jobTitle: jobTitle,
         jobDescription: jobDescription,
@@ -28,10 +27,9 @@ function JobPost() {
         minSal: minSal,
         maxSal: maxSal,
         locationId: locationId,
-        userId: userId,
       });
       alert("Post created successfully");
-
+      setUserId("");
       setJobId("");
       setJobTitle("");
       setJobDescription("");
@@ -39,7 +37,6 @@ function JobPost() {
       setMinSal("");
       setMaxSal("");
       setLocationId("");
-      setUserId("");
     } catch (err) {
       alert("Post creation failed");
     }
@@ -55,7 +52,14 @@ function JobPost() {
         <h1>Post job</h1>
         <p>Fill in the Information Below</p>
 
-
+        <input
+          type="number"
+          name="userId"
+          placeholder="Testing User ID"
+          onChange={(event) => {
+            setJobTitle(event.target.value);
+          }}
+        />
         <input
           type="text"
           name="jobTitle"
@@ -90,8 +94,8 @@ function JobPost() {
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
-          />
-         
+        />
+
         <h2 className="salary"> Salary range </h2>
 
         <input
@@ -111,51 +115,30 @@ function JobPost() {
             setMaxSal(event.target.value);
           }}
         />
-  
+
         <DatePicker
-        className="datePicker"
-        selected={startDate}
-        name="startDate"
-        onChange={date => setStartDate(date)}
-        isClearable
-        placeholderText="Start date"
+          className="datePicker"
+          selected={startDate}
+          name="startDate"
+          onChange={(date) => setStartDate(date)}
+          isClearable
+          placeholderText="Start date"
         />
 
         <DatePicker
-        className="datePicker"
-        selected={endDate}
-        name="endDate"
-        onChange={(date) => setEndDate(date)}
-        isClearable
-        placeholderText="End date"
+          className="datePicker"
+          selected={endDate}
+          name="endDate"
+          onChange={(date) => setEndDate(date)}
+          isClearable
+          placeholderText="End date"
         />
 
         <button type="submit">Submit Job</button>
         <button type="submit">Save draft</button>
-
       </form>
     </div>
   );
 }
 
 export default JobPost;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
