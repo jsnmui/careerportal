@@ -122,7 +122,7 @@ function JobPost() {
           name="startDate"
           onChange={(date) => setStartDate(date)}
           isClearable
-          placeholderText="Start date"
+          placeholderText="Post Date"
         />
 
         <DatePicker
@@ -131,7 +131,7 @@ function JobPost() {
           name="endDate"
           onChange={(date) => setEndDate(date)}
           isClearable
-          placeholderText="End date"
+          placeholderText="End Post Date"
         />
 
         <button type="submit">Submit Job</button>
