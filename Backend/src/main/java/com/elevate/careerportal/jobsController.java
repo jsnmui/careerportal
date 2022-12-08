@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
-
+@CrossOrigin (origins = "http://localhost:3000")
 @RestController
 public class jobsController {
     @Autowired
