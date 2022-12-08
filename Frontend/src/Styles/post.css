@@ -1,0 +1,17 @@
+.jobbox{
+    display: flex;
+    border: 2px red solid;
+    flex-direction: column;
+    flex-wrap: flex-wrap;
+    width:30em;
+    height:22Sem;
+}
+#header{
+    color: purple;
+    display: flex;
+    align-items:flex-start;
+}
+.departmenttxt{
+    display: flex;
+    align-items: flex-start;
+}

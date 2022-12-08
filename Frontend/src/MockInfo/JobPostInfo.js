@@ -1,4 +1,5 @@
 import * as CiIcons from 'react-icons/ci'
+
 export const JobPostInfo = [
     {   
         job:"Software Engineer",
@@ -8,7 +9,8 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:'job-container'
     },
     {   
         job:"Data Engineer",
@@ -18,7 +20,8 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Human Resources",
@@ -28,7 +31,8 @@ export const JobPostInfo = [
         state:"Kentucky,KY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Software Engineer",
@@ -38,7 +42,8 @@ export const JobPostInfo = [
         state:"Del Mar,California",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Software Engineer",
@@ -48,7 +53,8 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Software Engineer",
@@ -58,7 +64,8 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Software Engineer",
@@ -68,7 +75,8 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
     {   
         job:"Software Engineer",
@@ -78,9 +86,7 @@ export const JobPostInfo = [
         state:"New York,NY",
         salary:"100,000",
         salaryIcon: <CiIcons.CiMoneyBill/>,
-        date:"12-6-22"
+        date:"12-6-22",
+        cName:"jobbox"
     },
-
-
-
 ]
