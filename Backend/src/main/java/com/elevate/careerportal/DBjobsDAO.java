@@ -34,11 +34,22 @@ public class DBjobsDAO implements jobsDAO {
 
     @Override
     public Jobs addJob(Jobs jobs) {
-
         KeyHolder keyHolder = new GeneratedKeyHolder();
         template.update(connection -> {
-                    PreparedStatement ps = connection.prepareStatement("INSERT INTO careerportal.jobs (jobtitle,jobdescription,departmentid,minsal,maxsal,locationid,userid) VALUES (?,?,?,?,?,?,?)",
-                            Statement.RETURN_GENERATED_KEYS); ps.setString(1, jobs.getJobTitle()); ps.setString(2, jobs.getJobDescription()); ps.setInt(3, jobs.getDepartmentId()); ps.setObject(4, jobs.getMinSal());ps.setObject(5, jobs.getMaxSal());ps.setInt(6, jobs.getLocationId()); ps.setInt(7, jobs.getUserId());return ps;}
+                    PreparedStatement ps = connection.prepareStatement
+                            ("INSERT INTO careerportal.jobs (jobtitle," +
+                                            "jobdescription,departmentid," +
+                                            "minsal,maxsal,locationid,userid) " +
+                                            "VALUES (?,?,?,?,?,?,?)",
+                            Statement.RETURN_GENERATED_KEYS);
+                    ps.setString(1, jobs.getJobTitle());
+                    ps.setString(2, jobs.getJobDescription());
+                    ps.setInt(3, jobs.getDepartmentId());
+                    ps.setObject(4, jobs.getMinSal());
+                    ps.setObject(5, jobs.getMaxSal());
+                    ps.setInt(6, jobs.getLocationId());
+                    ps.setInt(7, jobs.getUserId());
+                    return ps;}
                 ,keyHolder);
         return getById((Integer)keyHolder.getKeys().get("jobid"));
     }
