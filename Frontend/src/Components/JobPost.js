@@ -10,6 +10,8 @@ function JobPost() {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [departmentId, setDepartmentId] = useState("");
+  const [postDate, setPostDate] =  useState(new Date());
+  const [postingEndDate, setPostingEndDate] = useState(new Date());
   const [minSal, setMinSal] = useState("");
   const [maxSal, setMaxSal] = useState("");
   const [locationId, setLocationId] = useState("");
@@ -24,6 +26,8 @@ function JobPost() {
         jobTitle: jobTitle,
         jobDescription: jobDescription,
         departmentId: departmentId,
+        postDate: postDate,
+        postingEndDate: postingEndDate, 
         minSal: minSal,
         maxSal: maxSal,
         locationId: locationId,
@@ -34,6 +38,8 @@ function JobPost() {
       setJobTitle("");
       setJobDescription("");
       setDepartmentId("");
+      setPostDate("");
+      setPostingEndDate("");
       setMinSal("");
       setMaxSal("");
       setLocationId("");
@@ -42,8 +48,7 @@ function JobPost() {
     }
   }
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  
 
   return (
     <div className="job-container">
@@ -118,18 +123,18 @@ function JobPost() {
 
         <DatePicker
           className="datePicker"
-          selected={startDate}
+          selected={postDate}
           name="startDate"
-          onChange={(date) => setStartDate(date)}
+          onChange={(date) => setPostDate(date)}
           isClearable
           placeholderText="Post Date"
         />
 
         <DatePicker
           className="datePicker"
-          selected={endDate}
+          selected={postingEndDate}
           name="endDate"
-          onChange={(date) => setEndDate(date)}
+          onChange={(date) => setPostingEndDate(date)}
           isClearable
           placeholderText="End Post Date"
         />
