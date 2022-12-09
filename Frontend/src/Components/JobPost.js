@@ -57,7 +57,7 @@ function JobPost() {
           name="userId"
           placeholder="Testing User ID"
           onChange={(event) => {
-            setJobTitle(event.target.value);
+            setUserId(event.target.value);
           }}
         />
         <input
