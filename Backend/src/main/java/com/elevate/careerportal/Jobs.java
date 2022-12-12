@@ -10,8 +10,8 @@ public class Jobs {
   private LocalDateTime postDate;
 
   private LocalDateTime postingEndDate;
-  private LocalDateTime archiveDate;
-  private boolean isActive = true;
+
+  private boolean isActive;
   private int locationId;
   private int userId;
   private Integer minSal;
@@ -45,11 +45,8 @@ public class Jobs {
         return postDate;
     }
 
-    public LocalDateTime getArchiveDate() {
-        return archiveDate;
-    }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
@@ -64,15 +61,14 @@ public class Jobs {
         return jobId;
     }
 
-    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, Integer minSal, Integer maxSal, int locationId, int userId) {
+    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, int locationId, int userId) {
         this.jobId = jobId;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
         this.departmentId = departmentId;
-        this.postDate = LocalDateTime.now();
-        if (this.isActive == false) {
-            this.archiveDate = LocalDateTime.now();
-        }
+        this.postDate = postDate;
+        this.postingEndDate =  postingEndDate;
+        this.isActive = true;
         this.minSal = minSal;
         this.maxSal = maxSal;
         this.locationId = locationId;
