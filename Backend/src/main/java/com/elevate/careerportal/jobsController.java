@@ -22,14 +22,6 @@ public class jobsController {
 
 
 
-//    @GetMapping(value="/jobs/{id}")
-//    public Jobs getJobbyID(@PathVariable int id) {
-//        return jobs.getById(id);
-//    }
-//    @GetMapping(value="/jobs")
-//    public Collection<Jobs> getAlljobs() {
-//        return jobs.getAlljobs();
-//    }
 
     @PostMapping(value="/jobs")
     public Jobs addJob(@RequestBody Jobs jobs) {
