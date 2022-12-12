@@ -16,6 +16,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -54,8 +55,9 @@ public class jobsControllerTest {
     @Test
     void postNewJob(){
         Jobs newJob = new Jobs(11,"Intern Software engineer",
-                "Write code, learn , solve problems , profit", 1,400,1000,
-                2,3);
+                "Write code, learn , solve problems , profit", 1, LocalDateTime.parse("2022-12-10T05:00:00")
+                ,LocalDateTime.parse("2022-12-31T05:00:00"),
+                true,400,1000,2,3);
 
         when(jobs.addJob(any(Jobs.class))).thenReturn(newJob);
 
@@ -68,6 +70,9 @@ public class jobsControllerTest {
                                 "locationId": 2,
                                 "jobTitle" : "Intern Software engineer",
                                 "jobDescription" :  "Write code, learn , solve problems , profit",
+                                "postDate": "2022-12-10T05:00:00",
+                                "postingEndDate": "2022-12-31T05:00:00",
+                                "isActive": true,
                                 "minSal" : 400,
                                 "maxSal" : 1000
                             }
@@ -80,11 +85,13 @@ public class jobsControllerTest {
                     .andExpect(MockMvcResultMatchers.jsonPath("jobDescription").value("Write code, learn , solve problems , profit"))
                     .andExpect(MockMvcResultMatchers.jsonPath("departmentId").value(1))
                     .andExpect(MockMvcResultMatchers.jsonPath("locationId").value(2))
-                    .andExpect(jsonPath("$.*",Matchers.hasSize(12)))
+                    .andExpect(jsonPath("$.*",Matchers.hasSize(11)))
                     .andExpect(MockMvcResultMatchers.jsonPath("userId").value(3))
+                    .andExpect(MockMvcResultMatchers.jsonPath("postDate").value("2022-12-10T05:00:00"))
+                    .andExpect(MockMvcResultMatchers.jsonPath("postingEndDate").value("2022-12-31T05:00:00"))
                     .andExpect(MockMvcResultMatchers.jsonPath("minSal").value(400))
                     .andExpect(MockMvcResultMatchers.jsonPath("maxSal").value(1000))
-                    .andExpect(MockMvcResultMatchers.jsonPath("active").value(true))
+                    .andExpect(MockMvcResultMatchers.jsonPath("isActive").value(true))
                     .andExpect(status().isOk()).andReturn();
 
         } catch (Exception e) {
