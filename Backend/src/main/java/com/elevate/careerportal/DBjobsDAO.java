@@ -60,6 +60,11 @@ public class DBjobsDAO implements jobsDAO {
                     ps.setInt(10, jobs.getUserId());
                     return ps;}
                 ,keyHolder);
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO careerportal.user_job_relationship (userid,jobid) VALUES (?,?)");
+            ps.setInt(1, jobs.getUserId());
+            ps.setInt(2, (Integer)keyHolder.getKeys().get("jobid"));
+            return ps;});
         return getById((Integer)keyHolder.getKeys().get("jobid"));
     }
 
