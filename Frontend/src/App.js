@@ -1,45 +1,33 @@
-import React from "react";
 
-//react routing
-import { ReactDOM } from "react";
-// import { Route, Switch } from "react-router-dom";
-
-//components
+import './App.css';
 import Dropdown from './Components/Dropdown';
 import JobPost from './Components/JobPost';
 import NavBar from './Components/NavBar';
-import { Post } from './Components/Post';
 import Options from './MockInfo/Options';
-
-import './App.css';
-import { Component } from "react";
+import Search from './Components/Search';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 // import './Styles/JobPost.css';
 
-const App = () => {
+function App() {
   return (
-        <div className="App">
-            
-            <JobPost/>
-            <Post/>
-            <Dropdown placeHolder="Location" options ={Options}/>
-        </div>
-      );
-  
-};
+    <Router>
+    <div className="App">
+        <NavBar/>
+          <Switch>
 
+              <Route path = '/Search'>
+                <Search/>
+              </Route>
+
+              <Route path = '/'>
+                <JobPost/>
+                <Dropdown placeHolder="Location" options ={Options}/>
+            </Route>
+
+          </Switch>
+    </div>
+    </Router>
+  );
+}
 
 export default App;
-// function App() {
-//  
-// }
-
-// return (
-//   <div>
-//     <NavBar/>
-//     <Switch>
-// <route path "/" exact Component = {}>
-//       <Route path="/jobs" exact component={JobPost}/>
-//       </Switch>
-   
-//       </div>
-// );
