@@ -20,27 +20,19 @@ public class jobsController {
         return "Welcome to the PeopleShores CareerPortal!";
     }
 
+  //  @GetMapping(value="/jobs/{id}")
+//    public Jobs getJobbyID(@PathVariable int id) {
+//        return jobs.getById(id);
+//    }
+//    @GetMapping(value="/jobs")
+//    public Collection<Jobs> getAlljobs() {
+//        return jobs.getAlljobs();
+//    }
 
-    //for testing returning records by id and all
-    @GetMapping(value="/count")
-    public String getCount() throws Exception {
 
-        int count = jobs.getJobsCount();
-        return "Table has " + count + " jobs";
-    }
 
-    @GetMapping(value="/jobs/{id}")
-    public Jobs getJobById(@PathVariable int id) {
-        return jobs.getById(id);
-    }
-    @GetMapping(value="/jobs")
-    public Collection<Jobs> getAlljobs() {
-        return jobs.getAlljobs();
-    }
-
-    //receiving input from user and passing to DAO
     @PostMapping(value="/jobs")
-    public Jobs newJob(@RequestBody Jobs jobs) {
+    public Jobs addJob(@RequestBody Jobs jobs) {
         return this.jobs.addJob(jobs);
     }
 
