@@ -69,10 +69,5 @@ public class DBjobsDAO implements jobsDAO {
     }
 
 
-//    @Override
-//    public int getJobsCount() {
-//        int count = template.queryForObject("select count(0) from careerportal.jobs", Integer.class);
-//        return count;
-//    }
 
 }

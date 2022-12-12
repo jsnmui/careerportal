@@ -12,7 +12,4 @@ public interface jobsDAO {
 
    Jobs addJob(Jobs jobs);
 
-//    int getJobsCount();
-
-
 }

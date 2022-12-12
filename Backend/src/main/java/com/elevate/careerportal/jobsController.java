@@ -20,12 +20,7 @@ public class jobsController {
         return "Welcome to the PeopleShores CareerPortal!";
     }
 
-//    @GetMapping(value="/count")
-//    public String getCount() throws Exception {
-//
-//        int count = jobs.getJobsCount();
-//        return "Table has " + count + " jobs";
-//    }
+
 
 //    @GetMapping(value="/jobs/{id}")
 //    public Jobs getJobbyID(@PathVariable int id) {
