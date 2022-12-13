@@ -1,6 +1,6 @@
 package com.elevate.careerportal;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ class DBjobsDAOTest {
     @MockBean
     private JdbcTemplate template;
 
-    @Before
+    @BeforeEach
     public void setUp() {
       template =mock(JdbcTemplate.class);
         jobs=mock(Jobs.class);
@@ -31,6 +31,7 @@ class DBjobsDAOTest {
 
     @Test
     void addJob() {
+    dao.addJob(jobs);
 
     }
 }
