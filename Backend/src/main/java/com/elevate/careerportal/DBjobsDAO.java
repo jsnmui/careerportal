@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.time.LocalDateTime;
@@ -66,6 +67,16 @@ public class DBjobsDAO implements jobsDAO {
             ps.setInt(2, (Integer)keyHolder.getKeys().get("jobid"));
             return ps;});
         return getById((Integer)keyHolder.getKeys().get("jobid"));
+    }
+
+    @Override
+    public void update(int id) {
+
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement("Update careerportal.jobs set isactive = false where jobid = ?");
+            ps.setInt(1, id);
+            return ps;});
+
     }
 
 

@@ -36,4 +36,9 @@ public class jobsController {
         return this.jobs.addJob(jobs);
     }
 
+    @PutMapping(value="/archive/{id}")
+    void update(@PathVariable int id) {
+        jobs.update(id);
+    }
+
 }
