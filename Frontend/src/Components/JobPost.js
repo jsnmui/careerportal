@@ -58,6 +58,19 @@ function JobPost() {
     }
   }
 
+  const resetForm = () => {
+    // setFormData({});
+    setUserId("");
+    setJobId("");
+    setJobTitle("");
+    setJobDescription("");
+    setDepartmentId("");
+    setPostDate("");
+    setPostingEndDate("");
+    setMinSal("");
+    setMaxSal("");
+    setLocationId("");
+  };
 
   return (
     <div className="job-container">
@@ -83,7 +96,8 @@ function JobPost() {
           }}
         />
 
-        <input
+        <textarea
+          className="description"
           type="text"
           name="jobDescription"
           placeholder="Job Description"
@@ -154,7 +168,7 @@ function JobPost() {
           placeholderText="End Post Date"
         />
 
-        <button type="submit">Submit Job</button>
+        <button type="submit" onClick={resetForm} >Submit Job</button>
         <button type="submit">Save draft</button>
       </form>
     </div>
