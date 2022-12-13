@@ -58,6 +58,7 @@ function JobPost() {
     }
   }
 
+
   return (
     <div className="job-container">
       <form className="job-form" onSubmit={handleSubmit}>
