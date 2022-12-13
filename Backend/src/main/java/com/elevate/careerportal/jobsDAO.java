@@ -12,6 +12,6 @@ public interface jobsDAO {
 
    Jobs addJob(Jobs jobs);
 
-   void update(int id);
+   void update(Jobs jobs);
 
 }
