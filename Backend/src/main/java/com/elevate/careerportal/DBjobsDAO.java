@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
+
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class DBjobsDAO implements jobsDAO {
                 "SELECT * FROM careerportal.jobs where jobid = ?",
                 ((rs, rowNum) -> new Jobs(rs.getInt("jobid"), rs.getString("jobtitle"), rs.getString("jobdescription"),rs.getInt("departmentid"),
                         rs.getObject("postDate", LocalDateTime.class), rs.getObject("postingendDate", LocalDateTime.class), rs.getBoolean("isactive"),
-                        rs.getObject("minsal",Integer.class),rs.getObject("maxsal",Integer.class),rs.getInt("locationid"),rs.getInt("userid"))),
+                        rs.getObject("minsal",Integer.class),rs.getObject("maxsal",Integer.class),rs.getString("locationid"),rs.getInt("userid"))),
                 id
         );
         return j;
@@ -39,6 +40,7 @@ public class DBjobsDAO implements jobsDAO {
 
     @Override
     public Jobs addJob(Jobs jobs) {
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
         template.update(connection -> {
                     PreparedStatement ps = connection.prepareStatement
@@ -66,6 +68,18 @@ public class DBjobsDAO implements jobsDAO {
             ps.setInt(2, (Integer)keyHolder.getKeys().get("jobid"));
             return ps;});
         return getById((Integer)keyHolder.getKeys().get("jobid"));
+    }
+
+    @Override
+    public void update(Jobs jobs) {
+
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement("Update careerportal.jobs set jobtitle = ? , jobdescription=? where jobid = ?");
+            ps.setString(1, jobs.getJobTitle());
+            ps.setString(2, jobs.getJobDescription());
+            ps.setInt(3, jobs.getJobId());
+            return ps;});
+
     }
 
 

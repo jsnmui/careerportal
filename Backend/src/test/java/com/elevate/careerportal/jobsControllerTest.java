@@ -1,5 +1,6 @@
 package com.elevate.careerportal;
 
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,17 +58,17 @@ public class jobsControllerTest {
         Jobs newJob = new Jobs(11,"Intern Software engineer",
                 "Write code, learn , solve problems , profit", 1, LocalDateTime.parse("2022-12-10T05:00:00")
                 ,LocalDateTime.parse("2022-12-31T05:00:00"),
-                true,400,1000,2,3);
+                true,400,1000,"2. Clarksdale",3);
 
         when(jobs.addJob(any(Jobs.class))).thenReturn(newJob);
 
         try {
             mockMvc.perform(post("/jobs")
-                    .content("""
+                            .content("""
                             {
                                 "userId" : 3,
                                 "departmentId": 1,
-                                "locationId": 2,
+                                "locationId": "2. Clarksdale",
                                 "jobTitle" : "Intern Software engineer",
                                 "jobDescription" :  "Write code, learn , solve problems , profit",
                                 "postDate": "2022-12-10T05:00:00",
@@ -77,8 +78,8 @@ public class jobsControllerTest {
                                 "maxSal" : 1000
                             }
                             """)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .accept(MediaType.APPLICATION_JSON))
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().is(200))
                     .andExpect(MockMvcResultMatchers.jsonPath("jobId").value(11))
                     .andExpect(MockMvcResultMatchers.jsonPath("jobTitle").value("Intern Software engineer"))

@@ -12,4 +12,6 @@ public interface jobsDAO {
 
    Jobs addJob(Jobs jobs);
 
+   void update(Jobs jobs);
+
 }
