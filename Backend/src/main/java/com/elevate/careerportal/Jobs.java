@@ -61,7 +61,7 @@ public class Jobs {
         return jobId;
     }
 
-    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, int locationId, int userId) {
+    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, String locationId, int userId) {
         this.jobId = jobId;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
@@ -71,7 +71,10 @@ public class Jobs {
         this.isActive = true;
         this.minSal = minSal;
         this.maxSal = maxSal;
-        this.locationId = locationId;
+        if (locationId != null){
+            String[] arr = locationId.split(". ", 2);
+            this.locationId = Integer.parseInt(arr[0]);
+        }
         this.userId = userId;
     }
 
