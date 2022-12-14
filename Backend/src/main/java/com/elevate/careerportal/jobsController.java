@@ -20,9 +20,7 @@ public class jobsController {
         return "Welcome to the PeopleShores CareerPortal!";
     }
 
-
-
-//    @GetMapping(value="/jobs/{id}")
+  //  @GetMapping(value="/jobs/{id}")
 //    public Jobs getJobbyID(@PathVariable int id) {
 //        return jobs.getById(id);
 //    }
@@ -30,6 +28,8 @@ public class jobsController {
 //    public Collection<Jobs> getAlljobs() {
 //        return jobs.getAlljobs();
 //    }
+
+
 
     @PostMapping(value="/jobs")
     public Jobs addJob(@RequestBody Jobs jobs) {
