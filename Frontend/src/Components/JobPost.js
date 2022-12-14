@@ -93,14 +93,19 @@ function JobPost() {
         />
 
         <input
-          type="number"
+          type="text"
           name="locationId"
+           list="options"
           placeholder="Location"
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
         />
-
+        <datalist id="options">
+                   <option value="1. New York" />
+                   <option value="2. Clarksdale" />
+                   <option value="3. Atlanta" />
+         </datalist>
         <h2 className="salary"> Salary range </h2>
 
         <input
