@@ -23,7 +23,7 @@ public class DBjobsDAO implements jobsDAO {
                 "SELECT * FROM careerportal.jobs where jobid = ?",
                 ((rs, rowNum) -> new Jobs(rs.getInt("jobid"), rs.getString("jobtitle"), rs.getString("jobdescription"),rs.getInt("departmentid"),
                         rs.getObject("postDate", LocalDateTime.class), rs.getObject("postingendDate", LocalDateTime.class), rs.getBoolean("isactive"),
-                        rs.getObject("minsal",Integer.class),rs.getObject("maxsal",Integer.class),rs.getInt("locationid"),rs.getInt("userid"))),
+                        rs.getObject("minsal",Integer.class),rs.getObject("maxsal",Integer.class),rs.getString("locationid"),rs.getInt("userid"))),
                 id
         );
         return j;
@@ -40,6 +40,7 @@ public class DBjobsDAO implements jobsDAO {
 
     @Override
     public Jobs addJob(Jobs jobs) {
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
         template.update(connection -> {
                     PreparedStatement ps = connection.prepareStatement

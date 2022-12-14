@@ -58,7 +58,7 @@ public class jobsControllerTest {
         Jobs newJob = new Jobs(11,"Intern Software engineer",
                 "Write code, learn , solve problems , profit", 1, LocalDateTime.parse("2022-12-10T05:00:00")
                 ,LocalDateTime.parse("2022-12-31T05:00:00"),
-                true,400,1000,2,3);
+                true,400,1000,"2. Clarksdale",3);
 
         when(jobs.addJob(any(Jobs.class))).thenReturn(newJob);
 
@@ -68,7 +68,7 @@ public class jobsControllerTest {
                             {
                                 "userId" : 3,
                                 "departmentId": 1,
-                                "locationId": 2,
+                                "locationId": "2. Clarksdale",
                                 "jobTitle" : "Intern Software engineer",
                                 "jobDescription" :  "Write code, learn , solve problems , profit",
                                 "postDate": "2022-12-10T05:00:00",
