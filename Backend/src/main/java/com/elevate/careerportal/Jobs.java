@@ -71,7 +71,7 @@ public class Jobs {
         this.isActive = true;
         this.minSal = minSal;
         this.maxSal = maxSal;
-        if (locationId != null){
+        if (locationId != null && !locationId.isEmpty() && !locationId.isBlank()){
             String[] arr = locationId.split(". ", 2);
             this.locationId = Integer.parseInt(arr[0]);
         }
