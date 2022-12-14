@@ -5,7 +5,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
+@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 @RestController
+@RequestMapping
 public class jobsController {
     @Autowired
     private jobsDAO jobs;
@@ -18,24 +20,19 @@ public class jobsController {
         return "Welcome to the PeopleShores CareerPortal!";
     }
 
-    @GetMapping(value="/count")
-    public String getCount() throws Exception {
+  //  @GetMapping(value="/jobs/{id}")
+//    public Jobs getJobbyID(@PathVariable int id) {
+//        return jobs.getById(id);
+//    }
+//    @GetMapping(value="/jobs")
+//    public Collection<Jobs> getAlljobs() {
+//        return jobs.getAlljobs();
+//    }
 
-        int count = jobs.getJobsCount();
-        return "Table has " + count + " jobs";
-    }
 
-    @GetMapping(value="/jobs/{id}")
-    public Jobs getPublisher(@PathVariable int id) {
-        return jobs.getById(id);
-    }
-    @GetMapping(value="/jobs")
-    public Collection<Jobs> getAlljobs() {
-        return jobs.getAlljobs();
-    }
 
     @PostMapping(value="/jobs")
-    public Jobs newJob(@RequestBody Jobs jobs) {
+    public Jobs addJob(@RequestBody Jobs jobs) {
         return this.jobs.addJob(jobs);
     }
 

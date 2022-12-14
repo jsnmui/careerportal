@@ -2,6 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## To Run the the dependicies 
+npm i (want to be in the folder where you ran npm start)
+
+
+## Checking routes in react for anyone looking 
+After running react we should open a browswer, in there the react extension 
+should also be downloaded. If you have the extension you should be able to see 
+it in your dev-tools. From there you should look for the JobPost Tag and open up the branch.
+There you'll see all the hooks that we created for the form.
+
+## When opening the folders
+If you are trying to run the backend you can open the folder separately. After running the application, which runs the springboot.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
