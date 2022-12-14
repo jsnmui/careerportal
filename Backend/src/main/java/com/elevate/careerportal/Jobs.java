@@ -61,11 +61,14 @@ public class Jobs {
         return jobId;
     }
 
-    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, String locationId, int userId) {
+    public Jobs(int jobId, String jobTitle, String jobDescription, String departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, String locationId, int userId) {
         this.jobId = jobId;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
-        this.departmentId = departmentId;
+        if (departmentId != null && !departmentId.isEmpty() && !departmentId.isBlank()){
+            String[] arr = departmentId.split(". ", 2);
+            this.departmentId = Integer.parseInt(arr[0]);
+        }
         this.postDate = postDate;
         this.postingEndDate =  postingEndDate;
         this.isActive = true;

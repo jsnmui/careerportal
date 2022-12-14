@@ -10,7 +10,7 @@ function JobPost() {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [departmentId, setDepartmentId] = useState("");
-  const [postDate, setPostDate] =  useState(new Date());
+  const [postDate, setPostDate] = useState(new Date());
   const [postingEndDate, setPostingEndDate] = useState(new Date());
   const [minSal, setMinSal] = useState("");
   const [maxSal, setMaxSal] = useState("");
@@ -18,7 +18,6 @@ function JobPost() {
   const [userId, setUserId] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault();
     try {
       await axios.post("http://localhost:8080/jobs", {
         userId: userId,
@@ -46,9 +45,8 @@ function JobPost() {
     } catch (err) {
       alert("Post creation failed");
     }
+    event.preventDefault();
   }
-
-
 
   return (
     <div className="job-container">
@@ -64,7 +62,9 @@ function JobPost() {
           onChange={(event) => {
             setUserId(event.target.value);
           }}
+          value={userId}
         />
+        
         <input
           type="text"
           name="jobTitle"
@@ -72,40 +72,50 @@ function JobPost() {
           onChange={(event) => {
             setJobTitle(event.target.value);
           }}
+          value={jobTitle}
         />
 
-        <input
+        <textarea
           type="text"
           name="jobDescription"
           placeholder="Job Description"
           onChange={(event) => {
             setJobDescription(event.target.value);
           }}
-        />
-
-        <input
-          type="number"
-          name="departmentId"
-          placeholder="Department"
-          onChange={(event) => {
-            setDepartmentId(event.target.value);
-          }}
+          value={jobDescription}
         />
 
         <input
           type="text"
+          name="depatmentid"
+          list="options"
+          placeholder="Department"
+          onChange={(event) => {
+            setDepartmentId(event.target.value);
+          }}
+          value={departmentId}
+        />
+        <datalist id="options">
+          <option value="1. Morgan Stanley" />
+          <option value="2. Department of education" />
+        </datalist>
+
+        <input
+          type="text"
           name="locationId"
-           list="options"
+          list="options2"
           placeholder="Location"
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
+          value={locationId}
         />
-        <datalist id="options">
-                   <option value="1. New York" />
-                   <option value="2. Clarksdale" />
-                   <option value="3. Atlanta" />
-         </datalist>
+        <datalist id="options2">
+          <option value="1. New York" />
+          <option value="2. Clarksdale" />
+          <option value="3. Atlanta" />
+        </datalist>
+
         <h2 className="salary"> Salary range </h2>
 
         <input
@@ -115,6 +125,7 @@ function JobPost() {
           onChange={(event) => {
             setMinSal(event.target.value);
           }}
+          value={minSal}
         />
 
         <input
@@ -124,27 +135,33 @@ function JobPost() {
           onChange={(event) => {
             setMaxSal(event.target.value);
           }}
+          value={maxSal}
         />
 
         <DatePicker
           className="datePicker"
           selected={postDate}
-          name="startDate"
+          name="postDate"
           onChange={(date) => setPostDate(date)}
           isClearable
           placeholderText="Post Date"
+          value={postDate}
         />
 
         <DatePicker
           className="datePicker"
           selected={postingEndDate}
-          name="endDate"
+          name="postingEndDate"
           onChange={(date) => setPostingEndDate(date)}
           isClearable
           placeholderText="End Post Date"
+          value={postingEndDate}
         />
 
-        <button type="submit">Submit Job</button>
+        {/* <button type="submit" value="Submit"> */}
+        <button type="submit" onClick={handleSubmit}>
+          Submit Job
+        </button>
         <button type="submit">Save draft</button>
       </form>
     </div>
