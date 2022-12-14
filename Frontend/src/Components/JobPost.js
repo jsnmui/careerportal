@@ -10,22 +10,12 @@ function JobPost() {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [departmentId, setDepartmentId] = useState("");
-  const [postDate, setPostDate] = useState(new Date());
+  const [postDate, setPostDate] =  useState(new Date());
   const [postingEndDate, setPostingEndDate] = useState(new Date());
   const [minSal, setMinSal] = useState("");
   const [maxSal, setMaxSal] = useState("");
   const [locationId, setLocationId] = useState("");
   const [userId, setUserId] = useState("");
-
-  const [value, setValue] = useState("");
-  const handleChange = (event) => {
-    // Get the selected option from the <datalist> element
-    const options = event.target.form.elements.options;
-    const selectedOption = options.options[options.selectedIndex];
-
-    // Update the value state variable with the selected option
-    setValue(selectedOption.value);
-  };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -58,19 +48,7 @@ function JobPost() {
     }
   }
 
-  const resetForm = () => {
-    // setFormData({});
-    setUserId("");
-    setJobId("");
-    setJobTitle("");
-    setJobDescription("");
-    setDepartmentId("");
-    setPostDate("");
-    setPostingEndDate("");
-    setMinSal("");
-    setMaxSal("");
-    setLocationId("");
-  };
+
 
   return (
     <div className="job-container">
@@ -96,8 +74,7 @@ function JobPost() {
           }}
         />
 
-        <textarea
-          className="description"
+        <input
           type="text"
           name="jobDescription"
           placeholder="Job Description"
@@ -118,18 +95,17 @@ function JobPost() {
         <input
           type="text"
           name="locationId"
-          list="options"
+           list="options"
           placeholder="Location"
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
         />
         <datalist id="options">
-          <option value="1. New York" />
-          <option value="2. Clarksdale" />
-          <option value="3. Atlanta" />
-        </datalist>
-
+                   <option value="1. New York" />
+                   <option value="2. Clarksdale" />
+                   <option value="3. Atlanta" />
+         </datalist>
         <h2 className="salary"> Salary range </h2>
 
         <input
@@ -168,7 +144,7 @@ function JobPost() {
           placeholderText="End Post Date"
         />
 
-        <button type="submit" onClick={resetForm} >Submit Job</button>
+        <button type="submit">Submit Job</button>
         <button type="submit">Save draft</button>
       </form>
     </div>
