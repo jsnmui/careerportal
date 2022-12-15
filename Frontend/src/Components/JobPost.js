@@ -54,7 +54,6 @@ function JobPost() {
         <br></br>
         <h1>Post job</h1>
         <p>Fill in the Information Below</p>
-
         <input
           type="number"
           name="userId"
@@ -157,7 +156,6 @@ function JobPost() {
           placeholderText="End Post Date"
           value={postingEndDate}
         />
-
         {/* <button type="submit" value="Submit"> */}
         <button type="submit" onClick={handleSubmit}>
           Submit Job
