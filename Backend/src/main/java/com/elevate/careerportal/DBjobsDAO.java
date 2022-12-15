@@ -70,17 +70,6 @@ public class DBjobsDAO implements jobsDAO {
         return getById((Integer)keyHolder.getKeys().get("jobid"));
     }
 
-//    @Override
-//    public void update(Jobs jobs) {
-//
-//        template.update(connection -> {
-//            PreparedStatement ps = connection.prepareStatement("Update careerportal.jobs set jobtitle = ? , jobdescription=? where jobid = ?");
-//            ps.setString(1, jobs.getJobTitle());
-//            ps.setString(2, jobs.getJobDescription());
-//            ps.setInt(3, jobs.getJobId());
-//            return ps;});
-//
-//    }
 
 
 }
