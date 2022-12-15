@@ -37,10 +37,6 @@ public class jobsController {
     public Jobs addJob(@Valid @RequestBody Jobs jobs) {
         return this.jobs.addJob(jobs);
     }
-//
-//    @PutMapping(value="/archive")
-//    void update(@RequestBody Jobs jobs) {
-//        this.jobs.update(jobs);
-//    }
+
 
 }
