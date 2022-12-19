@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -28,9 +29,9 @@ import org.springframework.jdbc.support.KeyHolder;
 @ContextConfiguration(locations="classpath:testbeans.xml")
 class DBjobsDAOTest {
 
-    @Mock
+    @MockBean
     JdbcTemplate template;
-    @Mock
+    @MockBean
     KeyHolder keyHolder;
 
     @Test
@@ -40,8 +41,8 @@ class DBjobsDAOTest {
                                 , LocalDateTime.parse("2022-12-10T05:00:00")
                                , null, null, null, null, 21);
                ReflectionTestUtils.setField(j, "template", template);
-//               when(template.queryForObject(anyString(), any(RowMapper.class), any())).thenReturn(job);
-//                assertEquals(job, j.getById(1));
+              when(template.queryForObject(anyString(), any(RowMapper.class), any())).thenReturn(job);
+               assertEquals(job, j.getById(1));
 
       Map<String,Object> map = new HashMap<>();
         map.put("jobid",1);
@@ -55,10 +56,10 @@ class DBjobsDAOTest {
         map.put("maxSal",2);
         map.put("locationId",null);
         map.put("userId",1);
-
-
+         keyHolder.getKeyList().addAll(singletonList(map));
+     //   Mockito.when(keyHolderFactoryMock.newKeyHolder()).thenReturn(keyHolderMock);
         when(keyHolder.getKeys()).thenReturn(map);
-           //     j.addJob(job);
+           //    j.addJob(job);
 //        verify(template).update(anyString(),anyString(),anyInt(),any(),any(),anyBoolean(),any(),any(),anyInt(),anyInt());
            }
 }
