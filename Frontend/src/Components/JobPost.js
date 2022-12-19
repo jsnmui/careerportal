@@ -4,8 +4,11 @@ import { useState } from "react";
 import "../Styles/JobPost.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Dropdown from "./Dropdown";
+// import DropdownList from "react-widgets/DropdownList";
 
 function JobPost() {
+
   const [jobId, setJobId] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
@@ -16,6 +19,19 @@ function JobPost() {
   const [maxSal, setMaxSal] = useState("");
   const [locationId, setLocationId] = useState("");
   const [userId, setUserId] = useState("");
+
+  const options = [
+    {value : "one", label: "1. New York"},
+    {value : "two", label: "2. Clarksdale"},
+    {value : "three", label: "3. Atlanta"},
+  ]
+   
+  
+
+  // const [value, setValue] = useState("Red");
+
+  // var searchNames = ['Sydney', 'Melbourne', 'Brisbane', 
+  // 'Adelaide', 'Perth', 'Hobart'];
 
   async function handleSubmit(event) {
     try {
@@ -94,6 +110,8 @@ function JobPost() {
           }}
           value={departmentId}
         />
+      {/* <Dropdown placeHolder="Select..." options={options}/> */}
+
         <datalist id="options">
           <option value="1. Morgan Stanley" />
           <option value="2. Department of education" />
@@ -107,7 +125,7 @@ function JobPost() {
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
-          value={locationId}
+          // value={locationId}
         />
         <datalist id="options2">
           <option value="1. New York" />
@@ -115,8 +133,25 @@ function JobPost() {
           <option value="3. Atlanta" />
         </datalist>
 
-        <h2 className="salary"> Salary range </h2>
 
+
+
+
+    {/* <DropdownList
+      value={value}
+      onChange={(nextValue) => setValue(nextValue)}
+      data={["Yellow", "Red", "Blue"]}
+    /> */}
+
+          {/* <DropdownInput 
+              options={searchNames}
+              defaultValue={this.props.initialValue}
+              menuClassName='dropdown-input'
+              onSelect={this.handleSelectName}
+              placeholder='Search...'
+          /> */}
+        <h2 className="salary"> Salary range </h2>
+        
         <input
           type="number"
           name="minSal"
