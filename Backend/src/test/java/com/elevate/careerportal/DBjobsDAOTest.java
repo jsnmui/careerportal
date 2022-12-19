@@ -56,7 +56,7 @@ class DBjobsDAOTest {
         map.put("maxSal",2);
         map.put("locationId",null);
         map.put("userId",1);
-         keyHolder.getKeyList().addAll(singletonList(map));
+
      //   Mockito.when(keyHolderFactoryMock.newKeyHolder()).thenReturn(keyHolderMock);
         when(keyHolder.getKeys()).thenReturn(map);
            //    j.addJob(job);
