@@ -8,7 +8,7 @@ import java.util.Collection;
 public interface jobsDAO {
     Jobs getById(Integer id);
 //    //
-//   Collection<Jobs> getAlljobs();
+   Collection<Jobs> getAlljobs();
 
    Jobs addJob(Jobs jobs);
 
