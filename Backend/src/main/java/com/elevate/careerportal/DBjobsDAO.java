@@ -17,6 +17,12 @@ public class DBjobsDAO implements jobsDAO {
     @Autowired
     JdbcTemplate template;
 
+
+    @Override
+    public KeyHolder newKeyHolder() {
+        return new GeneratedKeyHolder();
+    }
+
     @Override
     public Jobs getById(Integer id) {
         Jobs j = template.queryForObject(
@@ -41,7 +47,7 @@ public class DBjobsDAO implements jobsDAO {
     @Override
     public Jobs addJob(Jobs jobs) {
 
-        KeyHolder keyHolder = new GeneratedKeyHolder();
+        KeyHolder keyHolder =  newKeyHolder() ;
         template.update(connection -> {
                     PreparedStatement ps = connection.prepareStatement
                             ("INSERT INTO careerportal.jobs (jobtitle," +
