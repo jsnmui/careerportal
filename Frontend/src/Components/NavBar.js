@@ -19,6 +19,7 @@ const NavBar = () =>{
                     <li>Our Impact</li>
                     <li>News</li>
                     <li> <Link to="/search">Career</Link></li>
+                    <li> <Link to="/post">Job Posts</Link></li>
                     <li>Contact</li>
                 </ul>
             </nav>
