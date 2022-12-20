@@ -1,5 +1,6 @@
 package com.elevate.careerportal;
 
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -13,5 +14,5 @@ public interface jobsDAO {
    Jobs addJob(Jobs jobs);
 
 //   void update(Jobs jobs);
-
+   KeyHolder newKeyHolder();
 }
