@@ -1,7 +1,7 @@
 
   .job-container
   {
-    /* height: 8em;
+    /* height: 8em;ls
     width: 8em; */
      display: flex;
      height: 78vh;
@@ -31,6 +31,12 @@
       margin: 0.5rem;
   }
 
+  textarea{
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    padding-right: 0.9rem;
+    margin: 0.5rem;
+  }
   
   button
   {
@@ -62,4 +68,14 @@
 
 .datePicker{
   width: 30em;
+}
+
+.description{
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  padding-right: 0.9rem;
+  margin: 0.5rem;
+  height: 80px;
+  /* text-wrap:50px; */
+  /* word-wrap: break-word */
 }
