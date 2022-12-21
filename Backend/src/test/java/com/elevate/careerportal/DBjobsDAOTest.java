@@ -40,14 +40,14 @@ class DBjobsDAOTest {
 
                 DBjobsDAO j = spy (new DBjobsDAO());
 
-               Jobs job = new Jobs(11, "Job", "Job Description", 12, LocalDateTime.parse("2022-12-10T05:00:00")
+               Jobs job = new Jobs(4, "Job", "Job Description", 12, LocalDateTime.parse("2022-12-10T05:00:00")
                                 , LocalDateTime.parse("2022-12-10T05:00:00")
                                , null, null, null, null, 21);
                ReflectionTestUtils.setField(j, "template", template);
 
 
       Map<String,Object> map = new HashMap<>();
-        map.put("jobid",11);
+        map.put("jobid",job.getJobId());
         map.put("jobTitle","Job");
         map.put("jobDescription","Job Description");
         map.put("departmentId",0);
@@ -66,6 +66,6 @@ class DBjobsDAOTest {
         verify(j).newKeyHolder();
         verify(template).update(any(PreparedStatementCreator.class),eq(keyholder));
         verify(template).update(any(PreparedStatementCreator.class));
-        verify(j).getById(11);
+        verify(j).getById(4);
     }
 }
