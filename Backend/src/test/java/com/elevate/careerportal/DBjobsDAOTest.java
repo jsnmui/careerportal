@@ -40,7 +40,7 @@ class DBjobsDAOTest {
 
                 DBjobsDAO j = spy (new DBjobsDAO());
 
-               Jobs job = new Jobs(11, "Job", "Job Description", 12, LocalDateTime.parse("2022-12-10T05:00:00")
+               Jobs job = new Jobs(11, "Job", "Job Description", null, LocalDateTime.parse("2022-12-10T05:00:00")
                                 , LocalDateTime.parse("2022-12-10T05:00:00")
                                , null, null, null, null, 21);
                ReflectionTestUtils.setField(j, "template", template);
