@@ -26,7 +26,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import static org.mockito.ArgumentMatchers.any;
 import org.springframework.jdbc.support.KeyHolder;
 @WebMvcTest(DBjobsDAO.class)
-@ContextConfiguration(locations="classpath:testbeans.xml")
+@ContextConfiguration(locations="classpath:beans.xml")
 class DBjobsDAOTest {
 
     @MockBean
