@@ -1,19 +1,24 @@
 package com.elevate.careerportal;
 
+import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 
 public class Jobs {
+    @Min(0)
     private int jobId;
     private String jobTitle;
     private String jobDescription;
+    @Min(0)
     private int departmentId;
     private LocalDateTime postDate;
 
     private LocalDateTime postingEndDate;
 
     private boolean isActive;
+    @Min(0)
     private int locationId;
     private int userId;
+
     private Integer minSal;
     private Integer maxSal;
 
