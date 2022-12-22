@@ -32,8 +32,7 @@ useEffect(()=> getPosts(), [])
             <div>{item.minSal} - {item.maxSal}</div>
             <p>{item.postDate}</p>
             <p>{item.postingEndDate}</p>
-             <p>test</p>
-             <p>{String(item.isActive)}</p>
+            <p>{String(item.isActive)}</p>
        </div>
 
         )
