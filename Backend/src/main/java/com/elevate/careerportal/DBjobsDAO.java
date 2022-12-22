@@ -27,7 +27,7 @@ public class DBjobsDAO implements jobsDAO {
     public Jobs getById(Integer id) {
         Jobs j = template.queryForObject(
                 "SELECT * FROM careerportal.jobs where jobid = ?",
-                ((rs, rowNum) -> new Jobs(rs.getInt("jobid"), rs.getString("jobtitle"), rs.getString("jobdescription"),rs.getInt("departmentid"),
+                ((rs, rowNum) -> new Jobs(rs.getInt("jobid"), rs.getString("jobtitle"), rs.getString("jobdescription"),rs.getString("departmentid"),
                         rs.getObject("postDate", LocalDateTime.class), rs.getObject("postingendDate", LocalDateTime.class), rs.getBoolean("isactive"),
                         rs.getObject("minsal",Integer.class),rs.getObject("maxsal",Integer.class),rs.getString("locationid"),rs.getInt("userid"))),
                 id

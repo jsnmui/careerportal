@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/Search.css';
 import {useState} from 'react';
+import { Archive } from '../Functions/Archive';
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -97,6 +98,7 @@ function Search() {
                      </li>
                    ))}
                  </ul>
+                 <Archive/>
                </div>
              );
              }

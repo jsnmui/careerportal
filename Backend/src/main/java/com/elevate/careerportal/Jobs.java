@@ -1,26 +1,21 @@
 package com.elevate.careerportal;
 
-import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 
 public class Jobs {
-  private int jobId;
-  private String jobTitle;
-  private String jobDescription;
+    private int jobId;
+    private String jobTitle;
+    private String jobDescription;
+    private int departmentId;
+    private LocalDateTime postDate;
 
-  @Min(0)
-  private int departmentId;
-  private LocalDateTime postDate;
+    private LocalDateTime postingEndDate;
 
-  private LocalDateTime postingEndDate;
-
-  private boolean isActive;
-  @Min(0)
-  private int locationId;
-  @Min(0)
-  private int userId;
-  private Integer minSal;
-  private Integer maxSal;
+    private boolean isActive;
+    private int locationId;
+    private int userId;
+    private Integer minSal;
+    private Integer maxSal;
 
     public LocalDateTime getPostingEndDate() {
         return postingEndDate;
@@ -38,9 +33,9 @@ public class Jobs {
         return jobTitle;
     }
 
-   public String getJobDescription() {
+    public String getJobDescription() {
         return jobDescription;
-   }
+    }
 
     public int getDepartmentId() {
         return departmentId;
@@ -66,11 +61,14 @@ public class Jobs {
         return jobId;
     }
 
-    public Jobs(int jobId, String jobTitle, String jobDescription, int departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, String locationId, int userId) {
+    public Jobs(int jobId, String jobTitle, String jobDescription, String departmentId, LocalDateTime postDate, LocalDateTime postingEndDate, Boolean isActive, Integer minSal, Integer maxSal, String locationId, int userId) {
         this.jobId = jobId;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
-        this.departmentId = departmentId;
+        if (departmentId != null && !departmentId.isEmpty() && !departmentId.isBlank()){
+            String[] arr = departmentId.split(". ", 2);
+            this.departmentId = Integer.parseInt(arr[0]);
+        }
         this.postDate = postDate;
         this.postingEndDate =  postingEndDate;
         this.isActive = true;
