@@ -48,16 +48,16 @@ class DBjobsDAOTest {
 
       Map<String,Object> map = new HashMap<>();
         map.put("jobid",job.getJobId());
-        map.put("jobTitle","Job");
-        map.put("jobDescription","Job Description");
-        map.put("departmentId",0);
-        map.put("postDate",LocalDateTime.parse("2022-12-10T05:00:00"));
-        map.put("postingEndDate",LocalDateTime.parse("2022-12-10T05:00:00"));
-        map.put("isActive",null);
-        map.put("minSal",0);
-        map.put("maxSal",2);
-        map.put("locationId",null);
-        map.put("userId",1);
+//        map.put("jobTitle","Job");
+//        map.put("jobDescription","Job Description");
+//        map.put("departmentId",0);
+//        map.put("postDate",LocalDateTime.parse("2022-12-10T05:00:00"));
+//        map.put("postingEndDate",LocalDateTime.parse("2022-12-10T05:00:00"));
+//        map.put("isActive",null);
+//        map.put("minSal",0);
+//        map.put("maxSal",2);
+//        map.put("locationId",null);
+//        map.put("userId",1);
 
         when(j.newKeyHolder()).thenReturn(keyholder);
         when(keyholder.getKeys()).thenReturn(map);
