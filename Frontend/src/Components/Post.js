@@ -24,6 +24,7 @@ useEffect(()=> getPosts(), [])
     
   return (
     <>
+    <div><h1>Open Jobs</h1></div>
     {repo.map((item,index)=>{
         return(
        <div key={index}>
