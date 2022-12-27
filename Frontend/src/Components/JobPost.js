@@ -34,6 +34,7 @@ function JobPost() {
   // 'Adelaide', 'Perth', 'Hobart'];
 
   async function handleSubmit(event) {
+   event.preventDefault();
     try {
       await axios.post("http://localhost:8080/jobs", {
         userId: userId,
@@ -61,7 +62,7 @@ function JobPost() {
     } catch (err) {
       alert("Post creation failed");
     }
-    event.preventDefault();
+
   }
 
   return (
