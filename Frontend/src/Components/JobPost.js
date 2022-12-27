@@ -126,7 +126,7 @@ function JobPost() {
           onChange={(event) => {
             setLocationId(event.target.value);
           }}
-          // value={locationId}
+           value={locationId}
         />
         <datalist id="options2">
           <option value="1. New York" />
