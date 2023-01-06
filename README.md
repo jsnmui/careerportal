@@ -1,2 +1,0 @@
-# careerportal
-jobs application
